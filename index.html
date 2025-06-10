@@ -6,6 +6,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Aquí se agregará header, contenido y footer -->
+
+  <div id="header"></div>
+  <div id="content"></div>
+  <div id="footer"></div>
+
+  <script>
+    async function includeHTML(id, file) {
+      const res = await fetch(file);
+      const text = await res.text();
+      document.getElementById(id).innerHTML = text;
+    }
+
+    includeHTML("header", "header.html");
+    includeHTML("content", "content.html");
+    includeHTML("footer", "footer.html");
+  </script>
+
 </body>
 </html>
